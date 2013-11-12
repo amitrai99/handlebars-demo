@@ -1,0 +1,54 @@
+<!DOCTYPE HTML>   
+<html>
+    <head>
+        <title>Handlebars.js Template</title>
+    </head>
+    <body>
+
+      <div id="header"></div>
+      
+      <div id="nav"></div>
+      
+      <div id="info"></div>
+
+      <div id="helpUrl"></div>
+
+      <!-- Simple -->
+      <script id="hdr-template" type="text/x-handlebars-template">
+        <h1>{{heading}}</h1>
+      </script>
+      
+      <!-- Iterator helper -->
+      <script id="nav-template" type="text/x-handlebars-template">
+        <ul>
+          {{#each links}}
+          <li><a href="{{url}}">{{text}}</a></li>
+          {{/each}}
+        </ul>
+      </script>
+
+      <!-- Conditional helpers -->
+      <script id="info-template" type="text/x-handlebars-template">
+        <!-- checks truthy values -->
+        {{#if info}}
+          <h3>{{info}}</h3>
+        {{else}}
+          <h3>No info available!</h3>
+        {{/if}}
+
+        <!-- checks untruthy values -->
+        {{#unless foo}}
+          <h3>There is no foo to display</h3>
+        {{/unless}}
+      </script>
+
+      <!-- Custom Helpers -->
+      <script id="chelp-template" type="text/x-handlebars-template">
+        <h3><a href="{{#getFullURL}}{{/getFullURL}}something/else/here">Speed boat</a></h3>
+      </script>
+
+      <script src="script/handlebars.js"></script>
+      <script src="script/test.js"></script>
+
+    </body>
+</html>
