@@ -13,7 +13,9 @@
 
       <div id="helpUrl"></div>
 
-      <!-- Simple -->
+      <div id="blockHelper"></div>
+
+      <!-- Simple Handlebars Expression -->
       <script id="hdr-template" type="text/x-handlebars-template">
         <h1>{{heading}}</h1>
       </script>
@@ -43,8 +45,14 @@
       </script>
 
       <!-- Custom Helpers -->
+      <!-- Basic/Inline Helpers  -->
       <script id="chelp-template" type="text/x-handlebars-template">
-        <h3><a href="{{#getFullURL}}{{/getFullURL}}something/else/here">Speed boat</a></h3>
+        <h3><a href="{{getFullURL 'something/else/here' params}}">Speed boat</a></h3>
+      </script>
+      
+      <!-- Block Helpers  -->
+      <script id="blockhelp-template" type="text/x-handlebars-template">
+        <h3>{{#decorate}}<p class="{{class}}">{{text}}</p>{{/decorate}}</h3>
       </script>
 
       <script src="script/handlebars.js"></script>
