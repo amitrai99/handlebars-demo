@@ -17,37 +17,65 @@
 
       <!-- Simple Handlebars Expression -->
       <script id="hdr-template" type="text/x-handlebars-template">
-        <h1>{{heading}}</h1>
+        <h2>Rendering for variable and sections</h2>
+        <h3>{{heading}}</h3>
+        <!-- There are two ways to render the data -->
+        <div>
+          <p>Using sections</p>
+          <!-- By using the block scoped variable -->
+          {{#intro}}
+            {{#msg}}
+              <p class="introTxt">{{introTxt}}</p>
+              <p class="moreInfo">{{moreInfo}}</p>
+            {{/msg}}
+          {{/intro}}
+        </div>
+        <div>
+          <p>Using dot notation variable</p>
+          <!-- By using the dot notation -->
+          <p class="introTxt">{{intro.msg.introTxt}}</p>
+          <p class="moreInfo">{{intro.msg.moreInfo}}</p>
+        </div>
+        <!-- By default the HTML in context data gets escaped -->
+        <!-- To unescape the data use triple stache \{{{}}} -->
+        <p>Triple stache \{{{}}} creates unescaped HTML {{{myData}}}</p>
+        <p>Double stached \{{}} is escaped {{myData}}</p>
+        <hr/>
       </script>
       
       <!-- Iterator helper -->
       <script id="nav-template" type="text/x-handlebars-template">
+        <h3>Iterator</h3>
         <ul>
           {{#each links}}
           <li><a href="{{url}}">{{text}}</a></li>
           {{/each}}
         </ul>
+        <hr/>
       </script>
 
       <!-- Conditional helpers -->
       <script id="info-template" type="text/x-handlebars-template">
+        <h3>Conditional helpers</h3>
         <!-- checks truthy values -->
         {{#if info}}
-          <h3>{{info}}</h3>
+          <h3>Using #if {{info}}</h3>
         {{else}}
           <h3>No info available!</h3>
         {{/if}}
 
         <!-- checks untruthy values -->
         {{#unless foo}}
-          <h3>There is no foo to display</h3>
+          <h3>Using #unless for untruthy There is no foo to display</h3>
         {{/unless}}
+        <hr/>
       </script>
 
       <!-- Custom Helpers -->
       <!-- Basic/Inline Helpers  -->
       <script id="chelp-template" type="text/x-handlebars-template">
-        <h3><a href="{{getFullURL 'something/else/here' params}}">Speed boat</a></h3>
+        <h3><a href="{{getFullURL 'something/else/here' params}}">Basic helper</a></h3>
+        <hr/>
       </script>
       
       <!-- Block Helpers  -->
