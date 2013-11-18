@@ -11,3 +11,7 @@ Handlebars provides many features like:
 * Precompilation
 * Execution (Converting the template to actual HTML/text)
 * Helpers (Custom and Built-in helpers)
+
+## Misc
+
+* http://tryhandlebarsjs.com/
